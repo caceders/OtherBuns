@@ -23,6 +23,7 @@ public class PlayerMovement: MonoBehaviour
 
     PlayerMovementState currentMovementState;
     [SerializeField] private float movementspeed;
+    [SerializeField] private float movementSmoothing = 0.8f;
     [SerializeField] private float jumpstrength;
     [SerializeField] private float jumpSmoothing = 0.1f;
     [SerializeField] private float jumpCoolDownTime = .1f;
@@ -94,6 +95,8 @@ public class PlayerMovement: MonoBehaviour
         }
         else
         {
+            //Smooth stopping
+            rb.velocity =new Vector2(rb.velocity.x * movementSmoothing, rb.velocity.y);
             isWalking = false;
         }
     }
