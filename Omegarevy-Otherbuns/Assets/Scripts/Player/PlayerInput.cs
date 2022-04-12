@@ -16,4 +16,8 @@ public class PlayerInput : MonoBehaviour
     {
         return (Input.GetButton("Jump"));
     }
+    public bool CheckForInteract()
+    {
+        return (Input.GetKeyDown(KeyCode.E));
+    }
 }
