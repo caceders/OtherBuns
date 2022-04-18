@@ -11,12 +11,7 @@ public class ItemCollector : MonoBehaviour
 
     public void increaseCoinAmount()
     {
-        stats.Coins ++;
+        stats.Coins.changeAmountFlat(1);
         OnCoinCollected?.Invoke(this, EventArgs.Empty);
-    }
-
-    public int getCoinAmount()
-    {
-        return stats.Coins;
     }
 }

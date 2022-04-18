@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Ground
   - Blocking
-  - Coins
   - CoinDisplay
   layers:
   - Default
@@ -15,7 +14,7 @@ TagManager:
   - Background
   - Water
   - UI
-  - 
+  - Blocking
   - 
   - 
   - 
@@ -42,9 +41,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2237746017
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 2237746017
+  - name: Promt
+    uniqueID: 294294147
+    locked: 0
+  - name: KeyInput
+    uniqueID: 302575235
     locked: 0
