@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,10 @@ public class SimplePlatformMovementStrategy : MonoBehaviour, IPlatformMovementSt
     public float jumpStrength{get; private set;} = 15;
     public float movementSpeed{get; private set;} = 5;
     public float xVelocity{get{return rigidBody2D.velocity.x;} private set{}}
+
+    public event EventHandler OnEntityStartMovement;
+    public event EventHandler OnEntityStopMovement;
+
     private void Awake()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
@@ -85,5 +90,34 @@ public class SimplePlatformMovementStrategy : MonoBehaviour, IPlatformMovementSt
     public void setJumpStrength(float newJumpStrength)
     {
         jumpStrength = newJumpStrength;
+    }
+    public IPlatformMovementStrategy.MovementDirection GetMovementDirection()
+    {
+        IPlatformMovementStrategy.HorizontalMovementDirection horizontalMovementDirection;
+        IPlatformMovementStrategy.VerticalMovementDirection verticalMovementDirection;
+        float upDirection = -getDownDirection().y;
+
+        if(Mathf.Abs(rigidBody2D.velocity.x) <= 0.2) horizontalMovementDirection = IPlatformMovementStrategy.HorizontalMovementDirection.Still;
+        else if(rigidBody2D.velocity.x > 0.2) horizontalMovementDirection = IPlatformMovementStrategy.HorizontalMovementDirection.Right;
+        else horizontalMovementDirection = IPlatformMovementStrategy.HorizontalMovementDirection.Left;
+
+        if(Mathf.Abs(rigidBody2D.velocity.y) <= 0.2) verticalMovementDirection = IPlatformMovementStrategy.VerticalMovementDirection.Still;
+        else if(rigidBody2D.velocity.y > (0.2 * upDirection)) verticalMovementDirection = IPlatformMovementStrategy.VerticalMovementDirection.Up;
+        else verticalMovementDirection = IPlatformMovementStrategy.VerticalMovementDirection.Down;
+
+        IPlatformMovementStrategy.MovementDirection movementDirection;
+        movementDirection.horizontalMovementDirection = horizontalMovementDirection;
+        movementDirection.verticalMovementDirection = verticalMovementDirection;
+
+        return movementDirection;
+        
+    }
+    public float getXVelocity()
+    {
+        return rigidBody2D.velocity.x;
+    }
+    public float getYVelocity()
+    {
+        return rigidBody2D.velocity.y;
     }
 }

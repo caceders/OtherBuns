@@ -778,7 +778,7 @@ GameObject:
   m_Component:
   - component: {fileID: 387370164}
   m_Layer: 5
-  m_Name: DamageDisplay
+  m_Name: StrengthDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -824,8 +824,8 @@ GameObject:
   - component: {fileID: 435456809}
   - component: {fileID: 435456818}
   - component: {fileID: 435456816}
-  - component: {fileID: 435456817}
   - component: {fileID: 435456819}
+  - component: {fileID: 435456817}
   - component: {fileID: 435456815}
   m_Layer: 0
   m_Name: Zombie
@@ -879,7 +879,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 435456808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.38, y: -0.75, z: 0}
+  m_LocalPosition: {x: 1.34, y: -0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -897,7 +897,7 @@ Animator:
   m_GameObject: {fileID: 435456808}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c9b24f4ccdb96354498c91215820a578, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6c66f6c9c3873e4438ed59d0c2f597bc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -933,7 +933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 435456815}
   spriteRenderer: {fileID: 128496965}
-  movement: {fileID: 435456816}
+  DEBUGMODE: 1
 --- !u!114 &435456818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -947,9 +947,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hunterMovement: {fileID: 435456816}
-  hunterMovementSpeed: 5
-  hunterJumpStrength: 10
-  damagable: {fileID: 0}
+  hunterMovementSpeed: 3
+  hunterJumpStrength: 7
+  damagable: {fileID: 435456819}
 --- !u!114 &435456819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1075,8 +1075,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 2.96764e-40, y: -1.48382e-40, z: 0, w: 1}
-  m_LocalPosition: {x: 2.967642e-39, y: -0.653183, z: -10}
+  m_LocalRotation: {x: 3.16363e-40, y: -1.58181e-40, z: 0, w: 1}
+  m_LocalPosition: {x: 3.163627e-39, y: -0.653183, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1377,7 +1377,7 @@ Animator:
   m_GameObject: {fileID: 682452714}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 43c0da3eba698dd4e91bd4f771cffa1c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6c66f6c9c3873e4438ed59d0c2f597bc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1496,7 +1496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 682452719}
   spriteRenderer: {fileID: 811015169}
-  movement: {fileID: 682452729}
+  DEBUGMODE: 1
 --- !u!114 &682452732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2430,7 +2430,7 @@ GameObject:
   - component: {fileID: 1271131737}
   - component: {fileID: 1271131736}
   m_Layer: 5
-  m_Name: DamageAmount
+  m_Name: StrengthAmount
   m_TagString: CoinDisplay
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2468,8 +2468,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d13afa8c3c3c641a3731a935c07a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageDisplay: {fileID: 1271131737}
-  stats: {fileID: 682452723}
 --- !u!114 &1271131737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10560,7 +10558,7 @@ GameObject:
   - component: {fileID: 1949769878}
   - component: {fileID: 1949769877}
   m_Layer: 5
-  m_Name: DamageSprite
+  m_Name: StrengthSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

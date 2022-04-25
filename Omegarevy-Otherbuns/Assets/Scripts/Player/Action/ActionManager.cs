@@ -14,7 +14,7 @@ public class ActionManager : MonoBehaviour
     private GameObject player;
     [SerializeField]
     private PlayerInput playerInput;
-    private float timeUntilInputTimeOut = 0.3f;
+    private float timeUntilInputTimeOut = 0.5f;
     private float timeAtInputTimeOut = 0f;
     //Available Actions
     private ActionTemplate actionEmpty = new ActionEmpty();
